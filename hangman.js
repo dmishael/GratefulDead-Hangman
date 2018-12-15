@@ -79,27 +79,30 @@ const secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
 //set function for showing the clicked letter, IF correct, in the CONTAINER of the secret word
 
 $("#start").on('click', function(){
-    $("#revealedWord").html(secretWord).css("color", "white")
+    $("#revealedWord").html(secretWord).css("color", "green")
 })
 
-$('.key1').on('click', function () {
-    let correctLetter = $(this).html();
-    alert(correctLetter);
- });
+$(".key1, .key2, .key3").on('click', function () {
+    let selectedLetter = $(this).html()
+    let x = secretWord[(secretWord.indexOf(selectedLetter))].css("color", "blue")
+    console.log(x)
 
-$(".keyboard").on('click', function(){
-    if((".keyboard").text() === "U")
-    $("#revealedWord").html(secretWord).css("color", "black")
 })
+
+
+
+// $(".keyboard").on('click', function(){
+//     if((".keyboard").text() === "U")
+//     $("#revealedWord").html(secretWord).css("color", "black")
+// })
 
 // $(".key1").on('click', function(){
-//         for (i = 0; lenth < length.libraryArray; i++) {
-//             if (libraryArray[i] === key1.html())
+        
 //             $("#revealedWord")().css("color", "black")
 //             else $("#revealedWord")().css("color", "green")
 //         }})
-    // for (i = 0; lenth < length.libraryArray; i++) {
+//     for (i = 0; lenth < length.libraryArray; i++) {
 
-    // }
+//     }
 
 
