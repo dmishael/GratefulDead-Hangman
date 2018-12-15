@@ -82,9 +82,22 @@ $("#start").on('click', function(){
     $("#revealedWord").html(secretWord).css("color", "white")
 })
 
-$(".key1",".key2",".key3").on('click', function(){
-        $("#revealedWord").html(secretWord).css("color", "black")
+$('.key1').on('click', function () {
+    let correctLetter = $(this).html();
+    alert(correctLetter);
+ });
+
+$(".keyboard").on('click', function(){
+    if((".keyboard").text() === "U")
+    $("#revealedWord").html(secretWord).css("color", "black")
 })
+
+// $(".key1").on('click', function(){
+//         for (i = 0; lenth < length.libraryArray; i++) {
+//             if (libraryArray[i] === key1.html())
+//             $("#revealedWord")().css("color", "black")
+//             else $("#revealedWord")().css("color", "green")
+//         }})
     // for (i = 0; lenth < length.libraryArray; i++) {
 
     // }
