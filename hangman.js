@@ -13,9 +13,9 @@ the keys are the audiance in the 'pit'
 
 MVP:
 
-layout web page with css grid and flexbox so it is responsive
-set up the title and supporting text
-set up a responsive keyboard illustrating each letter of the alphabet
+-layout web page with css grid and flexbox so it is responsive
+-set up the title and supporting text
+-set up a responsive keyboard illustrating each letter of the alphabet
 - In html create divs containing each letter of the alphabet
 - set clickable buttons in the form of a keyboard on page displaying the divs
 In html create a div for the empty tag containing the new "secret word"
@@ -31,6 +31,8 @@ set function for animation IF Jerry has all of his/her limbs and hung
 add button to restart
 
 https://www.pinterest.com/pin/329677635220872061/visual-search/?x=11&y=10&w=272&h=561
+https://www.google.com/search?q=wall+of+sound&source=lnms&tbm=isch&sa=X&ved=0ahUKEwi8st3E55_fAhWDhOAKHbLVBlQQ_AUIDigB&biw=1436&bih=688#imgrc=dd8tDCPVtdrP3M:
+
 
 Nice to haves:
 selects the song of the secret word (the song which contains the lyric or the name of the song) to play in the back
@@ -39,4 +41,37 @@ THE DEAD JOIN HIM ON STAGE AND *RIPPLE* PLAYS
 
 */
 
-$('h1').css('color','blue')
+let a = $('#a')
+let b = $('#b')
+let c = $('#c')
+let d = $('#d')
+let e = $('#e')
+let f = $('#f')
+let g = $('#g')
+let h = $('#h')
+let i = $('#i')
+let j = $('#j')
+let k = $('#k')
+let l = $('#l')
+let m = $('#m')
+let n = $('#n')
+let o = $('#o')
+let p = $('#p')
+let q = $('#q')
+let r = $('#r')
+let s = $('#s')
+let t = $('#t')
+let u = $('#u')
+let v = $('#v')
+let w = $('#w')
+let x = $('#x')
+let y = $('#y')
+let z = $('#z')
+
+// start.on('click',function (){
+// secretword.html(RandomSource {}
+// })
+
+// a.on('click', function () {
+//     for (
+// })
