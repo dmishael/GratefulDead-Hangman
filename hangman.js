@@ -18,8 +18,8 @@ MVP:
 -set up a responsive keyboard illustrating each letter of the alphabet
 - In html create divs containing each letter of the alphabet
 - set clickable buttons in the form of a keyboard on page displaying the divs
-In html create a div for the empty tag containing the new "secret word"
-set up library of random theme related words. Start with a few, can add more later
+- In html create a div for the empty tag containing the new "secret word"
+- set up library of random theme related words. Start with a few, can add more later
 set function for showing the clicked letter, IF correct, in the CONTAINER of the secret word
 set animation or transition for clicking action on keyboard
 set event for new background color of key button after letter clicked (greyed out)
@@ -73,16 +73,20 @@ let z = $('#z')
 let libraryArray = ["Bertha", "Ripple", "Franklin's Tower", "Uncle John's Band"]
 
 //randomly generated secret word
-let secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
+
+const secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
+
+//set function for showing the clicked letter, IF correct, in the CONTAINER of the secret word
+
+$("#start").on('click', function(){
+    $("#revealedWord").html(secretWord).css("color", "white")
+})
+
+$(".key1",".key2",".key3").on('click', function(){
+        $("#revealedWord").html(secretWord).css("color", "black")
+})
+    // for (i = 0; lenth < length.libraryArray; i++) {
+
+    // }
 
 
-
-
-
-// start.on('click',function (){
-// secretword.html(RandomSource {
-// })
-
-// a.on('click', function () {
-//     for (
-// })
