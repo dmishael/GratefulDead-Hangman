@@ -1,2 +1,2 @@
 Description of Game:
-1. 
+1.   

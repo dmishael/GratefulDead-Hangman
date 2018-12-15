@@ -1,0 +1,561 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+	 <link  rel="shortcut icon" href="HangmanBeers.ico"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="Hangman (Beers) :: Hang Man - guess the Beers Names and save the man! A fun game of guessing." />
+        <meta name="keywords" content="Hangman (Beers),Hangman, Hang Man,Beers,Beers Names,Guessing Game,Bhasinsoft Beers,Bhasinsoft Hangman" />
+        <meta name="author" content="" />
+        <meta name="geography" content="HSR Layout" />
+        
+        <title>Hangman (Beers)</title>
+        <script type="text/javascript" src="http://ebhasin.com/google-cse/js/jquery_002.js"></script>
+        <script type="text/javascript" src="http://ebhasin.com/google-cse/js/jquery.js"></script>
+        <script type="text/javascript" src="http://ebhasin.com/google-cse/php/searchdata.php"></script>
+        <link rel="stylesheet" type="text/css" href="http://ebhasin.com/google-cse/css/jquery.css"></link>
+        <script type="text/javascript">
+            $().ready(function() {
+                $("#cse_search").autocomplete(searchdata);
+            });
+        </script>
+
+        <script language="javascript">
+            /*
+        This hangman game was created by:
+        Colin Pear
+        cpear@hotmail.com
+        http://www.pearweb.com
+
+        Feel free to edit and use this code in any way you want. Just please give 
+        credit to me as the originator of the code. Thanks, have fun!
+        You may not sell this code without written permission from me.
+
+             */
+
+            //Global variables listed at the top
+            var lettersGuessed = new Array();
+            var numberOfChancesLeft;
+            var randNum;
+            var lettersGuessedCorrect = 0;
+
+            var secretWords = new Array();
+            secretWords[0]="Haywards";
+            secretWords[1]="Kings"
+            secretWords[2]="Kingfisher"
+            secretWords[3]="Carling";
+            secretWords[4]="Fosters"
+            secretWords[5]="Guinness"
+            secretWords[6]="Tennents"
+            secretWords[7]="Carlsberg"
+            secretWords[8]="Peroni"
+            secretWords[9]="Budweiser"
+            secretWords[10]="Grolsch"
+            secretWords[11]="Heineken"
+            secretWords[12]="Amstel"
+            secretWords[13]="Budvar"
+            secretWords[14]="Staropramen"
+            secretWords[15]="Hoegaarden"
+            secretWords[16]="Bass"
+            secretWords[17]="Becks"
+            secretWords[18]="Corona"
+            secretWords[19]="Leffe"
+            secretWords[20]="Kirin"
+            secretWords[21]="Boddingtons"
+            secretWords[22]="Otter" 
+			secretWords[23]="Bells Black Note Stout"
+			secretWords[24]="AleSmith Speedway Stout"
+			secretWords[25]="Bells Expedition Stout"
+			secretWords[26]="Surly Darkness"
+			secretWords[27]="Deschutes The Abyss"
+			secretWords[28]="Struise Pannepot"
+			secretWords[29]="Bells Hopslam"
+			secretWords[30]="Hair of the Dog Matt"
+			secretWords[31]="Founders Breakfast Stout"
+			secretWords[32]="Russian River Supplication"
+			secretWords[33]="Struise Pannepot Reserva"
+			secretWords[34]="Russian River Consecration"
+			
+			
+			
+
+			
+			 
+			                  
+
+
+            var hman0 = new Image();
+            hman0.src = "pics/h0.png";
+            var hman1 = new Image();
+            hman1.src = "pics/h1.png";
+            var hman2 = new Image();
+            hman2.src = "pics/h2.png";
+            var hman3 = new Image();
+            hman3.src = "pics/h3.png";
+            var hman4 = new Image();
+            hman4.src = "pics/h4.png";
+            var hman5 = new Image();
+            hman5.src = "pics/h5.png";
+            var hman6 = new Image();
+            hman6.src = "pics/h6.png";
+
+            function startGuessProcess()
+            {
+                if(numberOfChancesLeft > 0 && secretWords[randNum].length != lettersGuessedCorrect)
+                {
+                    processGuess();
+                }
+                else if(numberOfChancesLeft > 0 && secretWords[randNum].length == lettersGuessedCorrect)
+                {
+                    endGame("win");
+                }
+                else
+                {
+                    endGame("lost");
+                }
+            }
+
+            function processGuess()
+            {
+                usersGuess = document.getElementById("theGuess").value;
+                usersGuess = usersGuess.toLowerCase();
+                myRegExp = new RegExp("[a-z]");
+	
+                if( usersGuess != "" && usersGuess != null )
+                {
+                    if( myRegExp.test(usersGuess) )
+                    {
+                        processLetter();
+                    }
+                    else
+                    { alert("Only letters can be guessed. Please go back and enter a letter in the guess box."); }
+                }
+                else
+                { alert("Please enter a letter into the guess box."); }
+            }
+
+            function processLetter()
+            {
+	
+                var usersGuess = document.getElementById("theGuess").value;
+                usersGuess = usersGuess.toLowerCase();
+                var usedLetter = 0; 
+	
+                for(i=0; i<lettersGuessed.length; i++)
+                {
+                    //Check if letter has already been used
+                    if(lettersGuessed[i] == usersGuess)
+                    { 
+                        alert("You have already tried this letter. Please choose a new one.");
+                        usedLetter = 1	;	
+                    }
+                }
+	
+                if (usedLetter == 0)
+                {
+                    //Track the letter used in the array lettersGuessed
+                    lettersGuessed[lettersGuessed.length] = usersGuess;
+		
+                    //Write out the letters used to the layer named 'letters'
+                    if(document.getElementById("letters").innerHTML == "")
+                    {
+                        document.getElementById("letters").innerHTML = usersGuess.toUpperCase();
+                    }
+                    else
+                    {
+                        document.getElementById("letters").innerHTML = document.getElementById("letters").innerHTML + ", " + usersGuess.toUpperCase();
+                    }
+		
+                    processChance();
+                }
+            }
+
+            function processChance()
+            {
+                if(checkLetter())
+                {
+                    //If the lette is good then we check to see if they won
+                    if(numberOfChancesLeft > 0 && secretWords[randNum].length == lettersGuessedCorrect)
+                    { endGame("win"); }
+                }
+                else
+                {
+                    //Change the hmanPic
+                    document.getElementById("hmanPic").src = eval("hman" + numberOfChancesLeft + ".src");
+	
+                    //Change the number of chances
+                    numberOfChancesLeft = numberOfChancesLeft - 1;
+                    document.getElementById("chances").innerHTML = "<span class='header'>Chances Left:</span> " + numberOfChancesLeft;
+		
+                    //End game if chances are up
+                    if(numberOfChancesLeft == 0)
+                    {endGame("lost");}
+                }
+	
+                //reset guessbox value to nothing
+                document.getElementById("theGuess").value = "";
+            }
+
+            function checkLetter()
+            {
+                var doesLetterExist = 0;
+                var usersGuess = document.getElementById("theGuess").value;
+                usersGuess = usersGuess.toLowerCase();
+	
+	
+                for(i=0; i<secretWords[randNum].length; i++)
+                {
+                    //alert("secretWords[randNum].charAt(" + i + ")" + secretWords[randNum].charAt(i));
+                    if(secretWords[randNum].toLowerCase().charAt(i) == usersGuess)
+                    {
+                        document.getElementById("secretLetter" + i).src = "pics/" + usersGuess + ".png";
+			
+                        //Keep track of correctly guessed letters so we know when to stop playing
+                        lettersGuessedCorrect++;
+			
+                        doesLetterExist++;
+                    }
+                }
+	
+                if (doesLetterExist == 0)
+                {
+                    alert("There are no " + usersGuess.toUpperCase() + "'s");
+                    return false;
+                }
+                else
+                { return true; }
+	
+            }
+
+            function gameInit()
+            {
+                //Reset Letters	
+                document.getElementById("letters").innerHTML = "";
+	
+                //Reset Chances
+                numberOfChancesLeft = 6;
+                document.getElementById("chances").innerHTML = "<span class='header'>Chances Left:</span> " + numberOfChancesLeft;
+	
+                //Reset LetterGuessed
+                lettersGuessedCorrect = 0;
+	
+                //Reset Secret Word
+                var theSecretWord = "<span class='header'>The Beer Name is :</span> ";
+                randNum = Math.floor( secretWords.length * Math.random() );
+                // alert(secretWords[randNum]);
+                //Create SecretWord with images
+                for(i=0; i<secretWords[randNum].length; i++)
+                {
+                    theSecretWord = theSecretWord + "<img id='secretLetter" + i + "' src='pics/blank.png'>";
+                }
+                document.getElementById("secretWord").innerHTML = theSecretWord;
+	
+                //Hide Start Over Button
+                document.getElementById("startOver").style.visibility = "hidden";
+	
+                //Reset Array
+                lettersGuessed = new Array();
+	
+                //Reset hman pic
+                document.getElementById("hmanPic").src = eval("hman0.src");
+	
+                //Reset winLose Box
+                document.getElementById("winLose").style.visibility = "hidden";
+	
+                //Reset text boxes
+                document.getElementById("theGuess").value = "";
+                document.getElementById("wordGuessText").value = "";
+            }
+
+
+            function wordAttempt()
+            {
+                var theWord = document.getElementById("wordGuessText").value;
+	
+                if(numberOfChancesLeft > 0 && secretWords[randNum].length != lettersGuessedCorrect && theWord != "")
+                {
+                    if( secretWords[randNum].toLowerCase() == theWord.toLowerCase() )
+                    {
+                        endGame("win");
+                    }
+                    else
+                    {
+                        alert(theWord + " is not correct.");
+			
+                        //Change the hmanPic
+                        document.getElementById("hmanPic").src = eval("hman" + numberOfChancesLeft + ".src");
+		
+                        //Change the number of chances
+                        numberOfChancesLeft = numberOfChancesLeft - 1;
+                        document.getElementById("chances").innerHTML = "<span class='header'>Chances Left:</span> " + numberOfChancesLeft;
+			
+                        //Reset Word Box
+                        document.getElementById("wordGuessText").value = "";
+			
+                        //End game if chances are up
+                        if(numberOfChancesLeft == 0)
+                        {endGame("lost");}
+                    }
+                }
+                else if(numberOfChancesLeft > 0 && secretWords[randNum].length != lettersGuessedCorrect && theWord == "")
+                {
+                    alert("Please enter a word before submitting your word guess.")
+                }
+                else
+                {
+                    alert("The game is over. Click the \"Start Over\" button to play again.");
+                }
+            }
+
+
+
+            function endGame(gameStatus)
+            {
+                if(gameStatus == "lost")
+                {
+                    //Notify user that they lost
+                    //alert("You lost! The game is over. The secret word was: " + secretWords[randNum]);
+		
+                    //Expose the secret word and set the color to red
+                    for(i=0; i<secretWords[randNum].length; i++)
+                    {
+			 
+                        document.getElementById("secretLetter" + i).src = "pics/red" + secretWords[randNum].toUpperCase().charAt(i) + ".png";
+                    }
+		
+                    //Show Lost Box
+                    //document.getElementById("winLose").innerHTML = "Sorry you lost, Loser!"
+                    // document.getElementById("winLose").style.visibility = "visible";
+                    alert("You lost! The game is over. The secret word was: " + secretWords[randNum]+"\nClick the 'Start Over' button to play again.");		
+                    //Show StartOver Button
+                    document.getElementById("startOver").style.visibility = "visible";
+                }
+                else if(gameStatus == "win")
+                {
+                    //Notify user that they lost
+                    //alert("You win!! Your Smart!);
+		
+                    //Expose the secret word and set the color to black
+                    for(i=0; i<secretWords[randNum].length; i++)
+                    { 
+                        document.getElementById("secretLetter" + i).src = "pics/" + secretWords[randNum].toLowerCase().charAt(i) + ".png";
+                    }
+		
+                    //Show Win Box
+                    //  document.getElementById("winLose").innerHTML = "You win!! Your Smart!"
+                    //document.getElementById("winLose").style.visibility = "visible";
+                    alert("You win!! Your Smart! \n Click the 'Start Over' button to play again.");
+		
+                    //Show StartOver Button
+                    document.getElementById("startOver").style.visibility = "visible";
+                }
+	
+            }
+
+            function inCaseSubmitForm()
+            {
+                startGuessProcess();
+                return false;
+            }
+
+            function inCaseWordSubmit()
+            {
+                wordAttempt();
+                return false;
+            }
+        </script>
+
+        <style type="text/css">
+            .tb7 {
+                width: 221px;
+                background: transparent url('pics/textboxbg.jpg') no-repeat;
+                color : #747862;
+                border:0;
+                padding:4px 8px;
+                margin-bottom:0px;
+                height: 20px;
+            }
+            body
+            {
+
+            }
+            div#content 
+            {
+                border-width: .1em;
+                border-style: none;
+                border-color: #900; 
+                width:700px;
+                padding:0px;
+            }
+            div#startOver 
+            {
+                visibility:hidden;
+            }
+            div#userGuess 
+            {
+                width:100%; 
+                text-align: center;
+            }
+            div#hmanArea 
+            {
+                float:right;
+            }
+            div#letters 
+            {
+                height:20px;}
+            div#winLose 
+            {
+                position:fixed;
+                top:240px; 
+                left:450px; 
+                width:150px; 
+                border:2px solid #000000; 
+                padding:10px; 
+                text-align:center;
+                visibility:hidden;
+                font-size:26px;
+                font-weight:bold;
+            }
+            .header 
+            {
+                font-size:14px; 
+                font-weight:bold;
+            }
+            .bigHeader 
+            {
+                font-size:24px; font-weight:bold; width:150px;text-align: center;
+            }
+        </style>
+    </head>
+
+    <body onLoad="gameInit()" style="background-color: #c7d298;">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+                <td width="30%" style="vertical-align: bottom;" align="right">
+                    <script type="text/javascript"><!--
+                        google_ad_client = "ca-pub-1823432637478832";
+                        /* V_Image_160x600 */
+                        google_ad_slot = "0652440957";
+                        google_ad_width = 160;
+                        google_ad_height = 600;
+                        //-->
+                    </script>
+                    <script type="text/javascript"
+                            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                    </script>
+                </td>
+                <td width="40%" style="vertical-align: top;"> 
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+                    
+
+                        <tr>
+                            <td align="center">
+                                <img src="pics/title.png" />
+                            </td>
+                        </tr>
+                       
+                        <tr>
+                            <td style="background-image:url(pics/hmbg.jpg); background-repeat: no-repeat; ">
+
+                                <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+
+                                    <tr>
+                                        <td style="text-align: center">
+                                            <div id="lettersGuessed">
+                                                <span class="header">Letters Guessed:</span><br>
+                                                <div id="letters"></div>
+                                            </div>
+                                        </td>
+                                        <td style="text-align: center;vertical-align: top;">
+                                            <div id="chancesLeft">
+                                                <div id="chances"><span class="header">Chances Left:</span> 6</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="50%">
+                                            <div id="userGuess">
+                                                <form name="userGuessForm" onSubmit="return inCaseSubmitForm()">
+                                                    <input id="theGuess" name="theGuess" size="5" maxlength="1" type="text"> 
+                                                    <input name="submit" value=" Guess A Letter" onClick="startGuessProcess()" type="button">
+
+                                                    <div style="visibility: hidden;" id="startOver">
+                                                        <input name="submit" value=" Start Over " onClick="gameInit()" type="button"></div>
+                                                </form>
+
+
+
+
+
+
+                                            </div>
+                                        </td>
+                                        <td width="50%" style="vertical-align: top;">
+                                            <div id="wordGuess">
+                                                <form name="wordGuessForm" onSubmit="return inCaseWordSubmit()">
+                                                    <input id="wordGuessText" name="wordGuess" size="25" type="text">  <input name="submit" value=" Guess the Word" onClick="wordAttempt()" type="button">
+                                                </form>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <div id="secretWord">
+                                                <span class="header">The Beer Name is:</span>
+                                                <img id="secretLetter0" src="pics/blank.png">
+                                                <img id="secretLetter1" src="pics/blank.png">
+                                                <img id="secretLetter2" src="pics/blank.png">
+                                                <img id="secretLetter3" src="pics/blank.png">
+                                            </div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            Try to unveil the Beer Name by guessing its 
+                                            letters. You will have 6 chances to guess the word, or guess a letter.
+	If you guess incorrectly you will lose a chance and your man will be 
+                                            one step closer to being hung! Good Luck!<br/>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div id="content">
+                                                <div id="hmanArea"><img id="hmanPic" src="pics/h0.png" height="357" width="534"></div>
+                                                <br clear="all">
+                                                <div id="winLose"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+
+                            </td>
+                        </tr>
+                     
+                    </table>
+                </td>
+                <td width="30%" style="vertical-align: bottom;" align="left">
+                    <script type="text/javascript"><!--
+                        google_ad_client = "ca-pub-1823432637478832";
+                        /* V_Image_160x600 */
+                        google_ad_slot = "0652440957";
+                        google_ad_width = 160;
+                        google_ad_height = 600;
+                        //-->
+                    </script>
+                    <script type="text/javascript"
+                            src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+                    </script>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="3"> &copy; All Rights Reserved. <a style="text-decoration: none;" href="htp://www.ebhasin.com">Bhasinsoft India Ltd</a></td>
+            </tr>
+        </table>
+
+
+
+
+    </body>
+</html>

@@ -70,25 +70,28 @@ let z = $('#z')
 
 //library of secret words
 
-let libraryArray = ["Bertha", "Ripple", "Franklin's Tower", "Uncle John's Band"]
+let libraryArray = ["BERTHA"]
 
 //randomly generated secret word
 
-const secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
+let secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
 
 //set function for showing the clicked letter, IF correct, in the CONTAINER of the secret word
 
 $("#start").on('click', function(){
-    $("#revealedWord").html(secretWord).css("color", "green")
+    $("#revealedWord").html(secretWord).css("color", "white")
 })
 
 $(".key1, .key2, .key3").on('click', function () {
     let selectedLetter = $(this).html()
-    let x = secretWord[(secretWord.indexOf(selectedLetter))].css("color", "blue")
-    console.log(x)
-
+    (secretWord.indexOf(selectedLetter))
+    
+    
 })
 
+
+
+// $("secretWord"[1]).css("color", "blue")
 
 
 // $(".keyboard").on('click', function(){
