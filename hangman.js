@@ -68,8 +68,19 @@ let x = $('#x')
 let y = $('#y')
 let z = $('#z')
 
+//library of secret words
+
+let libraryArray = ["Bertha", "Ripple", "Franklin's Tower", "Uncle John's Band"]
+
+//randomly generated secret word
+let secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
+
+
+
+
+
 // start.on('click',function (){
-// secretword.html(RandomSource {}
+// secretword.html(RandomSource {
 // })
 
 // a.on('click', function () {
