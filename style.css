@@ -26,16 +26,36 @@ body {
 
 }
 
-#skeleton, #revealedWord{
+#revealedWord, #skeleton-head, #skeleton-torso, #skeleton-right-arm, #skeleton-left-arm, #skeleton-right-leg, #skeleton-left-leg{
     position: absolute;
 }
 
 
-#skeleton {
+#skeleton-head {
     z-index: 1;
     left: 45%;
 }
-
+#skeleton-torso {
+    z-index: 1;
+    left: 46.5%;
+    top: 34%;
+}
+#skeleton-right-arm {
+    z-index: 1;
+    left: 45%;
+}
+#skeleton-left-arm {
+    z-index: 1;
+    left: 45%;
+}
+#skeleton-right-leg {
+    z-index: 1;
+    left: 45%;
+}
+#skeleton-left-leg {
+    z-index: 1;
+    left: 45%;
+}
 #revealedWord {
     z-index: 2;
     left: 45%;
