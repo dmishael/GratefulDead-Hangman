@@ -81,13 +81,18 @@ let secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
 $("#start").on('click', function(){
     $("#revealedWord").html(secretWord).css("color", "white")
 })
-
+// take the third letter of the word selected and change the collor to black
 $(".key1, .key2, .key3").on('click', function () {
     let selectedLetter = $(this).html()
-    (secretWord.indexOf(selectedLetter))
-    
+    let i = secretWord.indexOf(selectedLetter)
+//    secretWord.(i).style.color = "blue";
+    let correctLetter = secretWord.substring(0,1)
+    correctLetter.style.color = "black"
+    alert(correctLetter)
     
 })
+
+// $('#header')[1].css('color','red')
 
 
 
