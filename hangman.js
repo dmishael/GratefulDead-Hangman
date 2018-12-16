@@ -134,7 +134,7 @@ $(".key1, .key2, .key3").on('click', function () {
     alert("you lose!") 
     }
     if (wordArray.join('') == secretWord){
-        alert("you win!")
+        $("#Jerry-for-the-win").css("visibility","visible")
     } 
  })
 
