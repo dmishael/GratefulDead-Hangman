@@ -29,6 +29,12 @@ body {
     grid-row: 1;
     grid-column: 1; 
 }
+
+#try-again{
+    color: white;
+}
+
+
 #speaker {
     grid-row: 2;
     grid-column: 3;
