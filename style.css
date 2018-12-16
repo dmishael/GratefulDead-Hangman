@@ -26,20 +26,23 @@ body {
 
 }
 
-#hangmanFrame, #skeleton{
+#skeleton, #revealedWord{
     position: absolute;
 }
 
-#hangmanFrame {
-    z-index: 2;
-
-}
 
 #skeleton {
     z-index: 1;
     left: 45%;
 }
 
+#revealedWord {
+    z-index: 2;
+    left: 45%;
+    top: 69%;
+    font-size: 26px;
+
+}
 #header {
     grid-row: 1;
     grid-column: 2;

@@ -70,20 +70,15 @@ let z = $('#z')
 
 //library of secret words
 
-let libraryArray = ["BIRD SONG"]
+let libraryArray = ["BERTHA", "TRUCKIN", "BIRD SONG", "SLIPKNOT"]
 
 //randomly generated secret word
 
 let secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
-
 let wordArray = []
-for (let i = 0; i < secretWord.length; i++) {
-    if (secretWord[i] === " ") {
-        wordArray.push(" ");
-    } else {
-        wordArray.push("_");
-    }
-}
+
+
+let clicks = 0
 // for (i = 0; i < secretWord.lenth; i++) {
 //     wordArray.push("_")
 // }
@@ -92,18 +87,42 @@ for (let i = 0; i < secretWord.length; i++) {
 //set function for showing the clicked letter, IF correct, in the CONTAINER of the secret word
 
 $("#start").on('click', function(){
-    $("#secretWord").html(secretWord).css("color", "Black")
-})
+    $("#secretWord").html(secretWord)
+    for (let i = 0; i < secretWord.length; i++) {
+        if (secretWord[i] === " ") {
+            wordArray.push(" ")
+        } else {
+            wordArray.push(" _ ")
+        }
+    
+    
+}})
+
 // take the third letter of the word selected and change the color to black
 $(".key1, .key2, .key3").on('click', function () {
     let selectedLetter = $(this).text()
-    let iX = secretWord.indexOf(selectedLetter)
-    wordArray[iX] = selectedLetter
+    let index = secretWord.indexOf(selectedLetter)
+    $(this).css("background-color","grey")
+    if (index > -1) {
+    wordArray[index] = selectedLetter
     // if (wordArray.length < secretWord.lenth) {
     //     for (
     // }
-    $("#revealedWord").html(wordArray)  
+    $("#revealedWord").html(wordArray)
+    }
+    if (index <= -1) {
+        clicks += 1
+        //css part
+    }
+    if (clicks > 5){ 
+    alert("you lose!") 
+    }
+    if (wordArray.join('') == secretWord){
+        alert("you win!")
+    } 
  })
+
+
 // if selected letter is in the secretWord put that letter in the position of that word into the array. 
 // if the array there is space between the letters 
 
@@ -135,3 +154,15 @@ $(".key1, .key2, .key3").on('click', function () {
 //     }
 
 
+/*
+IF NEW WAY DOESN'T WORK
+$(".key1, .key2, .key3").on('click', function () {
+    let selectedLetter = $(this).text()
+    let iX = secretWord.indexOf(selectedLetter)
+    wordArray[iX] = selectedLetter
+    // if (wordArray.length < secretWord.lenth) {
+    //     for (
+    // }
+    $("#revealedWord").html(wordArray)  
+ })
+*/
