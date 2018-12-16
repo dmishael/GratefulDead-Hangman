@@ -114,7 +114,25 @@ $(".key1, .key2, .key3").on('click', function () {
         clicks += 1
         //css part
     }
-    if (clicks > 5){ 
+    if (clicks === 1){ 
+        $("#skeleton-head").css("visibility","visible")
+        }
+        if (clicks === 2){ 
+            $("#skeleton-torso").css("visibility","visible")
+            }
+            if (clicks === 3){ 
+                $("#skeleton-right-arm").css("visibility","visible")
+                }
+                if (clicks === 4){ 
+                    $("#skeleton-left-arm").css("visibility","visible")
+                    }
+                    if (clicks === 5){ 
+                        $("#skeleton-left-leg").css("visibility","visible")
+                        }
+                        if (clicks === 6){ 
+                            $("#skeleton-right-leg").css("visibility","visible")
+                            }
+    if (clicks > 6){ 
     alert("you lose!") 
     }
     if (wordArray.join('') == secretWord){

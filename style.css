@@ -34,27 +34,37 @@ body {
 #skeleton-head {
     z-index: 1;
     left: 45%;
+    visibility: hidden;
 }
 #skeleton-torso {
     z-index: 1;
     left: 46.5%;
-    top: 34%;
+    top: 33%;
+    visibility: hidden;
 }
 #skeleton-right-arm {
     z-index: 1;
-    left: 45%;
+    left: 50%;
+    top: 34%;
+    visibility: hidden;
 }
 #skeleton-left-arm {
     z-index: 1;
-    left: 45%;
+    left: 44.5%;
+    top: 34%;
+    visibility: hidden;
 }
 #skeleton-right-leg {
     z-index: 1;
-    left: 45%;
+    left: 48.5%;
+    top: 45%;
+    visibility: hidden;
 }
 #skeleton-left-leg {
     z-index: 1;
-    left: 45%;
+    left: 46%;
+    top: 45%;
+    visibility: hidden;
 }
 #revealedWord {
     z-index: 2;
