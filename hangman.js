@@ -135,6 +135,8 @@ $(".key1, .key2, .key3").on('click', function () {
     }
     if (wordArray.join('') == secretWord){
         $("#Jerry-for-the-win").css("visibility","visible")
+        $("#Noose").css("visibility","hidden")
+        $(".skeleton").css("visibility","hidden")
     } 
  })
 
