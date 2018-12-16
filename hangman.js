@@ -94,8 +94,6 @@ $("#start").on('click', function(){
         } else {
             wordArray.push(" _ ")
         }
-    
-    
 }})
 
 // take the third letter of the word selected and change the color to black
@@ -132,7 +130,7 @@ $(".key1, .key2, .key3").on('click', function () {
                         if (clicks === 6){ 
                             $("#skeleton-right-leg").css("visibility","visible")
                             }
-    if (clicks > 6){ 
+    if (clicks > 5){ 
     alert("you lose!") 
     }
     if (wordArray.join('') == secretWord){
