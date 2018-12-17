@@ -70,7 +70,7 @@ let z = $('#z')
 
 //library of secret words
 
-let libraryArray = ["BERTHA", "TRUCKIN", "BIRD SONG", "SLIPKNOT", "EL PASO"]
+let libraryArray = ["RIPPLE"]
 
 //randomly generated secret word
 
@@ -84,7 +84,7 @@ let clicks = 0
 // }
 
 
-//set function for showing the clicked letter, IF correct, in the CONTAINER of the secret word
+//set function for showing the clicked letter, if correct, in the CONTAINER of the secret word
 
 $("#start").on('click', function(){
     $("#secretWord").html(secretWord)
@@ -96,6 +96,7 @@ $("#start").on('click', function(){
         }
 }})
 
+
 // take the third letter of the word selected and change the color to black
 $(".key1, .key2, .key3").on('click', function () {
     let selectedLetter = $(this).text()
@@ -103,6 +104,10 @@ $(".key1, .key2, .key3").on('click', function () {
     $(this).css("background-color","grey")
     if (index > -1) {
     wordArray[index] = selectedLetter
+    for (let index2 = index; index2 < secretWord.length; index2++) {
+        if (secretWord[index2] == wordArray[index])
+        wordArray[index2]
+    }
     // if (wordArray.length < secretWord.lenth) {
     //     for (
     // }
