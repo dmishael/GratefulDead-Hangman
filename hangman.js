@@ -88,12 +88,17 @@ let clicks = 0
 
 $("#start").on('click', function(){
     $("#secretWord").html(secretWord)
+    if (wordArray.length < secretWord.length){
     for (let i = 0; i < secretWord.length; i++) {
         if (secretWord[i] === " ") {
             wordArray.push(" ")
         } else {
             wordArray.push(" _ ")
         }
+}
+
+    $("#revealedWord").html(wordArray)
+    
 }})
 
 
@@ -103,10 +108,13 @@ $(".key1, .key2, .key3").on('click', function () {
     let index = secretWord.indexOf(selectedLetter)
     $(this).css("background-color","grey")
     if (index > -1) {
-    wordArray[index] = selectedLetter
+    
     for (let index2 = index; index2 < secretWord.length; index2++) {
         if (secretWord[index2] == wordArray[index])
-        wordArray[index2]
+        wordArray[index2] = selectedLetter
+        wordArray[index] = selectedLetter
+        if (secretWord[index2] != wordArray[index])
+        wordArray[index] = selectedLetter
     }
     // if (wordArray.length < secretWord.lenth) {
     //     for (
