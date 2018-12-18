@@ -15,10 +15,10 @@ body {
 #Description {
     position: absolute;
     z-index: 2;
-    left: 37%;
-    top: 10%;
+    left: 36%;
+    top: 8%;
     font-size: 18px;
-    color: white;
+    color: lightgrey;
     font-weight: 200;
     visibility: visible;    
 }
@@ -26,18 +26,18 @@ body {
 #Lose {
     position: absolute;
     z-index: 2;
-    left: 14%;
-    top: 30%;
+    left: 36%;
+    top: 36%;
     visibility: hidden;
     font-size: 30px;
-    color: white;
-    font-weight: 400;
+    color: darkred;
+    font-weight: 700;
 }
 #header {
     grid-row: 1;
     grid-column: 2;
     width: 100%;
-    color: white; 
+    color:white; 
     text-align: center;
     font-family: ;
     font-stretch: expanded;
@@ -65,7 +65,8 @@ body {
     position: absolute;
     left: 45%;
     top: 60%;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 300;
     z-index: 2;
     visibility: hidden;
 }
@@ -100,7 +101,7 @@ body {
 
 #skeleton-head {
     z-index: 3;
-    top: 20%;
+    top: 19%;
     left: 44.3%;
     visibility: hidden;
 }
