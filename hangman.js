@@ -70,7 +70,7 @@ let z = $('#z')
 
 //library of secret words
 
-let libraryArray = ["RIPPLE", "DEAL", "BERTHA", "ST STEPHEN"]
+let libraryArray = ["RIPPLE", "DEAL", "BERTHA", "ST STEPHEN", "CHINA CAT", "WHARF RAT", "CASSIDY", "FRANKLINSTOWER", "BOX OF RAIN"]
 
 //randomly generated secret word
 

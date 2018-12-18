@@ -19,6 +19,7 @@ body {
     top: 8%;
     font-size: 18px;
     color: lightgrey;
+    font-family: fantasy;
     font-weight: 200;
     visibility: visible;    
 }
@@ -30,6 +31,7 @@ body {
     top: 36%;
     visibility: hidden;
     font-size: 30px;
+    font-family: fantasy;
     color: darkred;
     font-weight: 700;
 }
@@ -39,7 +41,7 @@ body {
     width: 100%;
     color:white; 
     text-align: center;
-    font-family: ;
+    font-family: fantasy;
     font-stretch: expanded;
     text-transform: uppercase;
     font-size: 38px;
@@ -56,6 +58,7 @@ body {
     left: 9%;
     top: 57%;
     font-size: 20px;
+    font-family: fantasy;
     background: black;
     font-weight: 400;
 
@@ -63,8 +66,8 @@ body {
 
 #revealedWord {
     position: absolute;
-    left: 45%;
-    top: 60%;
+    left: 40%;
+    top: 72%;
     font-size: 30px;
     font-weight: 300;
     z-index: 2;
@@ -96,42 +99,42 @@ body {
 #Noose{
     z-index: 2;
     top: 5%;
-    left: 41%;
+    left: 42.8%;
 }
 
 #skeleton-head {
     z-index: 3;
     top: 19%;
-    left: 44.3%;
+    left: 46.5%;
     visibility: hidden;
 }
 #skeleton-torso {
     z-index: 1;
-    left: 45.8%;
+    left: 47.8%;
     top: 32%;
     visibility: hidden;
 }
 #skeleton-right-arm {
     z-index: 1;
-    left: 49.6%;
+    left: 51.6%;
     top: 33%;
     visibility: hidden;
 }
 #skeleton-left-arm {
     z-index: 1;
-    left: 43.5%;
+    left: 45.5%;
     top: 33%;
     visibility: hidden;
 }
 #skeleton-right-leg {
     z-index: 1;
-    left: 47.5%;
+    left: 49.5%;
     top: 45%;
     visibility: hidden;
 }
 #skeleton-left-leg {
     z-index: 1;
-    left: 45.4%;
+    left: 47.4%;
     top: 45%;
     visibility: hidden;
 }
@@ -176,6 +179,8 @@ body {
     text-decoration: none;
     background:white;
     color: black;
+    font-family: fantasy;
+    font-weight: 800;
     border: solid black;
     padding: 3px;
 }
@@ -193,6 +198,8 @@ body {
     grid-column: 2;
     text-decoration: none;
     background:white;
+    font-family: fantasy;
+    font-weight: 800;
     color: black;
     border: solid black;
     padding: 3px;
@@ -211,6 +218,8 @@ body {
     grid-column: 2;
     text-decoration: none;
     background:white;
+    font-family: fantasy;
+    font-weight: 800;
     color: black;
     border: solid black;
     padding: 3px;
