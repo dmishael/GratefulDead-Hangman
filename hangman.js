@@ -70,13 +70,14 @@ let z = $('#z')
 
 //library of secret words
 
-let libraryArray = ["RIPPLE", "DEAL", "BERTHA", "ST STEPHEN", "CHINA CAT", "WHARF RAT", "CASSIDY", "FRANKLINSTOWER", "BOX OF RAIN"]
+let libraryArray = ["RIPPLE", "DEAL", "BERTHA", "ST STEPHEN", "CHINA CAT", "WHARF RAT", "CASSIDY", "FRANKLINS TOWER", "BOX OF RAIN"]
 
 //randomly generated secret word
 
 let secretWord = libraryArray[Math.floor(Math.random() * libraryArray.length)]
 let wordArray = []
 
+// click variable stores number of clicks
 
 let clicks = 0
 // for (i = 0; i < secretWord.lenth; i++) {
@@ -84,7 +85,8 @@ let clicks = 0
 // }
 
 
-//set function for showing the clicked letter, if correct, in the CONTAINER of the secret word
+
+//for loop placeing "_" the amount of times of the length of the secret word.
 
 $("#start").on('click', function(){
     $("#secretWord").html(secretWord)
@@ -96,19 +98,20 @@ $("#start").on('click', function(){
             wordArray.push(" _ ")
         }
 }
-
+// on click I want to reveal the created wordArray so user can see how many charachters are in the word
     $("#revealedWord").html(wordArray).css("visibility","visible")
     
 }})
 
+//set function for showing the clicked letter, if correct, in the CONTAINER of the secret word
 
-// take the third letter of the word selected and change the color to black
 $(".key1, .key2, .key3").on('click', function () {
     let selectedLetter = $(this).text()
     let index = secretWord.indexOf(selectedLetter)
     $(this).css("background-color","grey")
     if (index > -1) {
-    
+
+        // function for if a duplicate letter in a word
     for (let index2 = index; index2 < secretWord.length; index2++) {
         if (secretWord[index2] == wordArray[index])
         wordArray[index2] = selectedLetter
@@ -116,11 +119,11 @@ $(".key1, .key2, .key3").on('click', function () {
         if (secretWord[index2] != wordArray[index])
         wordArray[index] = selectedLetter
     }
-    // if (wordArray.length < secretWord.lenth) {
-    //     for (
-    // }
+    
     $("#revealedWord").html(wordArray)
     }
+
+    // add body parts if wrong
     if (index <= -1) {
         clicks += 1
         //css part
@@ -143,10 +146,15 @@ $(".key1, .key2, .key3").on('click', function () {
                         if (clicks === 6){ 
                             $("#skeleton-right-leg").css("visibility","visible")
                             }
-    if (clicks > 5){ 
+    
+    // set game over notification
+                            if (clicks > 5){ 
         $("#Lose").css("visibility","visible")
+        $("#revealedWord").css("visibility","hidden")
        
     }
+
+    // set winning screen 
     if (wordArray.join('') == secretWord){
         $("#Jerry-for-the-win").css("visibility","visible")
         $("#Thanks").css("visibility","visible")
@@ -159,6 +167,8 @@ $(".key1, .key2, .key3").on('click', function () {
         $("#skeleton-right-leg").css("visibility","hidden")
         $("#Jerry-for-the-win").css("visibility","visible")
         $("#Description").css("visibility","hidden")
+        $("#revealedWord").css("visibility","hidden")
+        $("#Lose").css("visibility","hidden")
     } 
  })
 
