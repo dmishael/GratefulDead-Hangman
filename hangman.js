@@ -70,7 +70,7 @@ let z = $('#z')
 
 //library of secret words
 
-let libraryArray = ["RIPPLE"]
+let libraryArray = ["RIPPLE", "DEAL", "BERTHA", "ST STEPHEN"]
 
 //randomly generated secret word
 
@@ -97,7 +97,7 @@ $("#start").on('click', function(){
         }
 }
 
-    $("#revealedWord").html(wordArray)
+    $("#revealedWord").html(wordArray).css("visibility","visible")
     
 }})
 
@@ -144,12 +144,21 @@ $(".key1, .key2, .key3").on('click', function () {
                             $("#skeleton-right-leg").css("visibility","visible")
                             }
     if (clicks > 5){ 
-    alert("you lose!") 
+        $("#Lose").css("visibility","visible")
+       
     }
     if (wordArray.join('') == secretWord){
         $("#Jerry-for-the-win").css("visibility","visible")
+        $("#Thanks").css("visibility","visible")
         $("#Noose").css("visibility","hidden")
-        $(".skeleton").css("visibility","hidden")
+        $("#skeleton-head").css("visibility","hidden")
+        $("#skeleton-torso").css("visibility","hidden")
+        $("#skeleton-right-arm").css("visibility","hidden")
+        $("#skeleton-left-arm").css("visibility","hidden")
+        $("#skeleton-left-leg").css("visibility","hidden")
+        $("#skeleton-right-leg").css("visibility","hidden")
+        $("#Jerry-for-the-win").css("visibility","visible")
+        $("#Description").css("visibility","hidden")
     } 
  })
 
