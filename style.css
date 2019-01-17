@@ -16,11 +16,11 @@ body {
     position: absolute;
     z-index: 2;
     left: 34%;
-    top: 8%;
+    top: 10%;
     font-size: 18px;
     color: lightgrey;
     font-family: fantasy;
-    font-weight: 200;
+    font-weight: 300;
     visibility: visible;    
 }
 
@@ -44,7 +44,7 @@ body {
     font-family: fantasy;
     font-stretch: expanded;
     text-transform: uppercase;
-    font-size: 38px;
+    font-size: 50px;
 }
 
 /* #try-again {
@@ -55,19 +55,23 @@ body {
     text-decoration: none;
     color: white;
     position: absolute;
-    left: 9%;
-    top: 57%;
+    left: 59%;
+    top: 17%;
     font-size: 20px;
     font-family: fantasy;
-    background: black;
     font-weight: 400;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px 10px;
+    
+    
 
 }
 
 #revealedWord {
     position: absolute;
-    left: 40%;
-    top: 72%;
+    left: 43%;
+    top: 47%;
     font-size: 30px;
     font-weight: 300;
     z-index: 2;
