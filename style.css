@@ -84,7 +84,7 @@ body {
 
 #revealedWord {
     position: absolute;
-    left: 43%;
+    margin: 0 auto;
     top: 47%;
     font-size: 30px;
     font-weight: 300;
