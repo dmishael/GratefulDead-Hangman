@@ -84,6 +84,8 @@ body {
 
 #revealedWord {
     position: absolute;
+    grid-row: 2;
+    grid-column: 2;
     margin: 0 auto;
     top: 47%;
     font-size: 30px;
