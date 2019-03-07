@@ -88,7 +88,7 @@ let clicks = 0
 
 //for loop placeing "_" the amount of times of the length of the secret word.
 
-$("#header").on('click', function(){
+$("#start").on('click', function(){
     $("#secretWord").html(secretWord)
     if (wordArray.length < secretWord.length){
     for (let i = 0; i < secretWord.length; i++) {
