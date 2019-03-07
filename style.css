@@ -36,8 +36,8 @@ body {
     font-weight: 700;
 }
 #start a {
-    /* grid-row: 1;
-    grid-column: 2; */
+    grid-row: 1;
+    grid-column: 2;
     width: 100%;
     color:white; 
     text-align: center;
