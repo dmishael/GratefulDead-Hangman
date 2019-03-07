@@ -35,6 +35,12 @@ body {
     color: darkred;
     font-weight: 700;
 }
+
+#start {
+    grid-row: 1;
+    grid-column: 2;
+}
+
 #start a {
     grid-row: 1;
     grid-column: 2;
