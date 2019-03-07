@@ -86,6 +86,7 @@ body {
     position: absolute;
     left: 40%;
     top: 72%;
+    margin: auto;
     font-size: 30px;
     font-weight: 300;
     z-index: 2;
