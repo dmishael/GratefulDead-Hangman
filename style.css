@@ -35,7 +35,7 @@ body {
     color: darkred;
     font-weight: 700;
 }
-#start a {
+#start {
     grid-row: 1;
     grid-column: 2;
     width: 100%;
@@ -83,9 +83,9 @@ body {
 
 
 #revealedWord {
-    /* grid-row: 2;
+    grid-row: 2;
     grid-column: 2;
-    margin: 0 auto; */
+    margin: 0 auto;
     top: 47%;
     font-size: 30px;
     font-weight: 300;
