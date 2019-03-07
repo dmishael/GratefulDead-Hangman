@@ -83,16 +83,14 @@ body {
 
 
 #revealedWord {
-    /* grid-row: 2;
-    grid-column: 2;
-    margin: 0 auto; */
-    top: 30%;
+    position: absolute;
+    left: 40%;
+    top: 72%;
     font-size: 30px;
     font-weight: 300;
     z-index: 2;
     visibility: hidden;
 }
-
 
 
 
