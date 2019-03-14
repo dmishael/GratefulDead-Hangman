@@ -129,38 +129,38 @@ body {
 
 #skeleton-head {
     z-index: 3;
-    top: 17%;
+    top: 14.4%;
     left: 46.5%;
     visibility: hidden;
 }
 #skeleton-torso {
     z-index: 1;
-    left: 47.8%;
-    top: 29%;
+    left: 48%;
+    top: 25.7%;
     visibility: hidden;
 }
 #skeleton-right-arm {
     z-index: 1;
     left: 51.6%;
-    top: 30%;
+    top: 26.5%;
     visibility: hidden;
 }
 #skeleton-left-arm {
     z-index: 1;
-    left: 45.5%;
-    top: 30%;
+    left: 46%;
+    top: 26.5%;
     visibility: hidden;
 }
 #skeleton-right-leg {
     z-index: 1;
     left: 49.5%;
-    top: 42%;
+    top: 36%;
     visibility: hidden;
 }
 #skeleton-left-leg {
     z-index: 1;
     left: 47.4%;
-    top: 42%;
+    top: 36%;
     visibility: hidden;
 }
 
